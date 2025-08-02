@@ -1,0 +1,172 @@
+# VB_Kontrol
+My so far failed attempt to create an addon for Kodi that will allow video backgrounds. 
+Everything works flawlessly.... Except the one little part that's most important. Seeing the video loop.
+Other than that things are great. 
+
+# VB Kontrol - Universal Video Backgrounds
+## User Guide and Installation Instructions
+
+### WHAT IS VB KONTROL?
+VB Kontrol allows you to set video backgrounds for different menu items in any Kodi skin. Instead of static images, you can have moving video backgrounds that play behind your menus.
+
+### QUICK START GUIDE
+
+#### 1. WHERE TO PUT YOUR VIDEO FILES
+After installing VB Kontrol, your video files go in this folder:
+```
+userdata/addon_data/plugin.program.vbkontrol/video_backgrounds/
+```
+
+**How to find this folder:**
+- On Windows: Usually `%APPDATA%\Kodi\userdata\addon_data\plugin.program.vbkontrol\video_backgrounds\`
+- On Linux: Usually `~/.kodi/userdata/addon_data/plugin.program.vbkontrol/video_backgrounds/`
+- On Android: `/storage/emulated/0/Android/data/org.xbmc.kodi/files/.kodi/userdata/addon_data/plugin.program.vbkontrol/video_backgrounds/`
+
+**The folder is created automatically when you first run VB Kontrol.**
+
+#### 2. SUPPORTED VIDEO FORMATS
+- .mp4 (recommended)
+- .mkv
+- .avi
+- .mov
+- .wmv
+- .flv
+- .webm
+- .m4v
+
+#### 3. HOW TO USE VB KONTROL
+
+**Step 1: Copy your video files**
+Put your video files in the video_backgrounds folder
+
+**Step 2: Open VB Kontrol**
+- Go to Programs → VB Kontrol
+- Click "Run" - Configure has no effect in this program . 
+
+**Step 3: Configure video backgrounds**
+- You'll see 20 slots: Home, Movies, TV Shows, Music, etc.
+- Click any slot (like "Home")
+- Choose "Select Video File"
+- Browse and select your video file
+- The video is now assigned to that menu item
+
+#### 4. UNDERSTANDING THE 20 SLOTS
+VB Kontrol gives you 20 configurable slots with these default names:
+1. Home
+2. Movies
+3. TV Shows
+4. Music
+5. Pictures
+6. Videos
+7. Favourites
+8. Add-ons
+9. Settings
+10. Weather
+11. Programs
+12. Games
+13. System
+14. Live TV
+15. Radio
+16. Files
+17. Playlists
+18. Custom 1
+19. Custom 2
+20. Custom 3
+
+**You can rename any slot** to match your skin's menu items.
+
+#### 5. SLOT CONFIGURATION OPTIONS
+When you click a slot, you can:
+- **Select Video File** - Choose an MP4/video file
+- **Clear Video** - Remove the video background
+- **Rename Slot** - Change the slot name to match your menu
+
+#### 6. GLOBAL VIDEO OPTION
+- Click "🌍 Global Video Background" to set the same video for ALL slots
+- Useful if you want one video everywhere
+
+#### 7. FOR SKIN DEVELOPERS
+VB Kontrol sets window properties that any skin can use:
+
+**By slot name:**
+```xml
+$INFO[Window(10000).Property(VBKontrol.Home.Video)]
+$INFO[Window(10000).Property(VBKontrol.Movies.Video)]
+```
+
+**By slot number:**
+```xml
+$INFO[Window(10000).Property(VBKontrol.Slot1.Video)]
+$INFO[Window(10000).Property(VBKontrol.Slot2.Video)]
+```
+
+**Example skin usage:**
+```xml
+<control type="videowindow">
+    <visible>!IsEmpty(Window(10000).Property(VBKontrol.Home.Video))</visible>
+    <texture>$INFO[Window(10000).Property(VBKontrol.Home.Video)]</texture>
+</control>
+```
+
+### TROUBLESHOOTING
+
+#### Problem: "No MP4 files showing in file browser"
+**Solution:** Make sure your video files are in the correct folder:
+`userdata/addon_data/plugin.program.vbkontrol/video_backgrounds/`
+
+#### Problem: "VB Kontrol not appearing in Programs"
+**Solution:** 
+1. Check if addon is enabled in Settings → Add-ons → My add-ons → Program add-ons
+2. Restart Kodi if needed
+
+#### Problem: "Service not running"
+**Solution:** The service should start automatically. If not:
+1. Restart Kodi
+2. Check Kodi log for errors
+
+#### Problem: "Videos not playing in skin"
+**Solution:** Your skin needs to support video backgrounds. VB Kontrol only provides the video file paths - the skin must implement the video controls.
+
+### PERFORMANCE TIPS
+
+#### Video File Recommendations:
+- **Resolution:** 1080p or lower for best performance
+- **Format:** MP4 with H.264 encoding works best
+- **File Size:** Keep under 100MB for smooth playback
+- **Length:** 30-60 seconds (will loop automatically)
+
+#### For Low-End Devices:
+- Use 720p videos
+- Keep file sizes small (under 50MB)
+- Consider shorter clips (15-30 seconds)
+
+### ADVANCED USAGE
+
+#### Custom Slot Names:
+You can rename slots to match your skin exactly:
+- "Main Menu" instead of "Home"
+- "Film Collection" instead of "Movies"
+- "TV Series" instead of "TV Shows"
+
+#### Multiple Skins:
+VB Kontrol works with any skin. Each skin can use the same video assignments or ignore them - it's completely flexible.
+
+#### Backup Your Settings:
+Your video assignments are stored in small text files in:
+`userdata/addon_data/plugin.program.vbkontrol/`
+
+You can backup this entire folder to preserve your settings.
+
+### VERSION HISTORY
+- v1.0.5 - Proper Kodi v19+ structure, 20 configurable slots
+- v1.0.4 - Added service integration
+- v1.0.3 - Initial release
+
+### SUPPORT
+For issues or questions:
+1. Check the Kodi log file for errors
+2. Verify video files are in the correct folder
+3. Ensure your skin supports video backgrounds
+
+---
+**VB Kontrol - Making Kodi beautiful, one video at a time!**
