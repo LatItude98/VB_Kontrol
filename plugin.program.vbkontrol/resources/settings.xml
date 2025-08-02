@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings version="1">
+    <category label="General">
+        <setting id="enable_video_background" type="bool" label="Enable Video Backgrounds" default="true" />
+        <setting id="video_mode" type="select" label="Background Mode" values="Global|Per-Menu" default="0" />
+        <setting id="global_video_file" type="path" label="Global Video File" default="" visible="eq(-1,0)">
+            <constraints>
+                <options>
+                    <option label="439">writeable</option>
+                </options>
+            </constraints>
+            <control type="button" format="path">
+                <heading>Select Video File</heading>
+                <multiselect>false</multiselect>
+                <hideextension>false</hideextension>
+                <mask>.mp4|.mkv|.avi|.mov|.wmv|.flv|.webm|.m4v</mask>
+            </control>
+        </setting>
+        <setting id="video_loop" type="bool" label="Loop Videos" default="true" />
+        <setting id="video_volume" type="slider" label="Video Volume" default="0" range="0,5,100" option="int" />
+        <setting id="debug_logging" type="bool" label="Debug Logging" default="false" />
+    </category>
+    <category label="Per-Menu Videos" visible="eq(-5,1)">
+        <setting id="home_video_file" type="path" label="Home Video" default="">
+            <constraints>
+                <options>
+                    <option label="439">writeable</option>
+                </options>
+            </constraints>
+            <control type="button" format="path">
+                <heading>Select Home Video</heading>
+                <mask>.mp4|.mkv|.avi|.mov|.wmv|.flv|.webm|.m4v</mask>
+            </control>
+        </setting>
+        <setting id="movies_video_file" type="path" label="Movies Video" default="">
+            <constraints>
+                <options>
+                    <option label="439">writeable</option>
+                </options>
+            </constraints>
+            <control type="button" format="path">
+                <heading>Select Movies Video</heading>
+                <mask>.mp4|.mkv|.avi|.mov|.wmv|.flv|.webm|.m4v</mask>
+            </control>
+        </setting>
+        <setting id="tvshows_video_file" type="path" label="TV Shows Video" default="">
+            <constraints>
+                <options>
+                    <option label="439">writeable</option>
+                </options>
+            </constraints>
+            <control type="button" format="path">
+                <heading>Select TV Shows Video</heading>
+                <mask>.mp4|.mkv|.avi|.mov|.wmv|.flv|.webm|.m4v</mask>
+            </control>
+        </setting>
+        <setting id="music_video_file" type="path" label="Music Video" default="">
+            <constraints>
+                <options>
+                    <option label="439">writeable</option>
+                </options>
+            </constraints>
+            <control type="button" format="path">
+                <heading>Select Music Video</heading>
+                <mask>.mp4|.mkv|.avi|.mov|.wmv|.flv|.webm|.m4v</mask>
+            </control>
+        </setting>
+        <setting id="pictures_video_file" type="path" label="Pictures Video" default="">
+            <constraints>
+                <options>
+                    <option label="439">writeable</option>
+                </options>
+            </constraints>
+            <control type="button" format="path">
+                <heading>Select Pictures Video</heading>
+                <mask>.mp4|.mkv|.avi|.mov|.wmv|.flv|.webm|.m4v</mask>
+            </control>
+        </setting>
+    </category>
+</settings>
